@@ -2,7 +2,7 @@
 
 import pickle
 from keras.layers import BatchNormalization, PReLU, Input, Conv2D, MaxPool2D, AveragePooling2D, Flatten, Dense, Dropout, Activation
-from keras import Model
+from keras.models import Model
 from keras.optimizers import SGD
 import numpy as np
 
@@ -66,6 +66,6 @@ train_Y = np.array([x[2] for x in train_data[0:len(train_data)]])
 model = build_model(100)
 sgd = SGD(lr=0.1, momentum=0.9, decay=5e-4, nesterov=True)
 model.compile(optimizer=sgd, loss='categorical_crossentropy', metrics=['accuracy'])
-history = model.fit(x=train_X, y=train_Y, batch_size=32, epochs=32, verbose=1, validation_split=0.1)
+history = model.fit(x=train_X, y=train_Y, batch_size=32, epochs=50, verbose=1, validation_split=0.1)
 
 model.save_weights('base-model.h5')

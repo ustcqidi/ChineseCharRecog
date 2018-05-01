@@ -1,4 +1,5 @@
 .DS_Store
 dataset/
+train.zip
 train/onhot_label_list.dat
 train/train_data.dat
